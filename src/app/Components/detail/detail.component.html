@@ -1,0 +1,37 @@
+<div class="container pt-4">
+
+    <mat-spinner *ngIf="showSpinner" class="mx-auto mt-5"></mat-spinner>
+
+    <div *ngIf="image" class="row animate__animated animate__bounce animate__fadeIn">
+        <div class="row">
+            <div class="col-md-9">
+                <h2><strong>{{image.name}}</strong></h2>
+            </div>
+
+            <div class="col-md-3">
+                <a class="btn btn-danger" routerLink="/">Back</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" (click)="togglePanel()">{{ buttonText}}</button>
+            </div>
+        </div>
+        <div class="row">
+            <mat-accordion class="mt-3" (click)="togglePanel()">
+                <mat-expansion-panel hideToggle [expanded]="panelOpenState">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                    <p><strong>Identifier:</strong> {{image.id}}</p>
+                    <p><strong>Name:</strong> {{image.name}}</p>
+                    <p><strong>Coordinates:</strong> {{image.lat}}, {{image.lng}}</p>
+                    <p><strong>URL:</strong> {{image.image}}</p>
+                    <img style="width:70%; height: 70%;" class="rounded" src="{{image.image}}" alt="">
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
