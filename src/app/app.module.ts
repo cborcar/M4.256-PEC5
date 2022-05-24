@@ -15,7 +15,7 @@ import { ListComponent } from './Components/list/list.component';
 @NgModule({
   declarations: [AppComponent, ListComponent, DetailComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
